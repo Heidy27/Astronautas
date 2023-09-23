@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import Title from "../../components/Title/Title";
-import Filter from "../../components/Filtro/Filtro";
+import Filter from "../../components/Filtro/Filtro"; // Asegúrate de que la ruta del import sea correcta
 import customIcon from "../../assets/img/Vector 2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -13,6 +13,7 @@ function Home() {
   const [astronautas, setAstronautas] = useState([]);
   const [astronautasOriginales, setAstronautasOriginales] = useState([]);
   const [selectedNacionalidad, setSelectedNacionalidad] = useState("Todas");
+  const [searchValue, setSearchValue] = useState(""); // Nuevo estado para la búsqueda
 
   useEffect(() => {
     const fetchAstronautas = async () => {
@@ -27,17 +28,26 @@ function Home() {
   const handleNacionalidadChange = (newNacionalidad) => {
     setSelectedNacionalidad(newNacionalidad);
 
-    // Filtrar astronautas en función de la nacionalidad
     if (newNacionalidad === "Todas") {
-      // Restaurar la lista de astronautas originales
       setAstronautas(astronautasOriginales);
     } else {
-      // Filtrar por la nacionalidad seleccionada
       const astronautasFiltrados = astronautasOriginales.filter(
         (astronauta) => astronauta.nationality === newNacionalidad
       );
       setAstronautas(astronautasFiltrados);
     }
+  };
+
+  const handleSearchNameChange = (newSearchName) => {
+    setSearchValue(newSearchName);
+
+    // Filtrar astronautas por nombre
+    const filteredAstronauts = astronautasOriginales.filter((astronaut) =>
+      astronaut.name.toLowerCase().includes(newSearchName.toLowerCase())
+    );
+
+    // Actualizar la lista de astronautas filtrados
+    setAstronautas(filteredAstronauts);
   };
 
   return (
@@ -47,6 +57,8 @@ function Home() {
         filterType="nacionalidad"
         selectedNacionalidad={selectedNacionalidad}
         onFilterChange={handleNacionalidadChange}
+        searchValue={searchValue} // Pasa el valor del campo de búsqueda
+        onSearchChange={handleSearchNameChange} // Pasa la función para actualizar el campo de búsqueda
       />
       <div className="astronaut-card-container">
         {astronautas.map((astronauta) => (

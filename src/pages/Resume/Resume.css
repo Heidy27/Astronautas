@@ -12,7 +12,6 @@
 .resume-container .astronaut-info {
   flex: 1;
 }
-
 .resume-container .astronaut-info h2 {
   font-size: 24px;
   margin-bottom: 10px;
@@ -23,7 +22,6 @@
   font-weight: 500;
   line-height: 18.4px;
   margin-bottom: 10%;
-  color: #ab83ec;
   text-align: initial;
 }
 
@@ -47,7 +45,6 @@
 
 .resume-container .social-icons {
   display: flex;
-  gap: 10px;
 }
 
 .resume-container .social-icons a img {
@@ -74,7 +71,7 @@ hr {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  gap: 10%;
+  gap: 5%;
   margin: auto;
 }
 
@@ -128,7 +125,65 @@ hr {
 .resume-container .status {
   text-align: initial;
 }
+/* Estilos para el título de Misiones Espaciales */
+.accordion-title {
+  color: #fff;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.accordion-title hr {
+  border-bottom: 1px solid #fff;
+}
+
+.accordion-container button {
+  width: 500px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #e3e3e3;
+  background: rgba(0, 0, 0, 0.52);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #fff;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 3%;
+  margin-top: 4%;
+}
+.accordion-details p {
+  color: #fff;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  content: "•";
+}
+
+.accordion-button span {
+  font-size: 24px;
+}
+.resume-container .title {
+  margin-left: -2%;
+  margin-top: 2%;
+}
+.resume-container .astronaut-details a {
+  margin: auto;
+}
 @media screen and (max-width: 950px) {
+  .columns-container {
+    display: contents;
+  }
   .resume-container .astronaut-info h2 {
     font-size: 20px !important;
   }
@@ -154,7 +209,13 @@ hr {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
+  body {
+    padding: auto;
+  }
+  .accordion-container button {
+    width: 300px;
+  }
   .astronaut-details {
     margin-bottom: 25%;
     margin-top: 10%;

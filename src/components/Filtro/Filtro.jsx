@@ -4,9 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { getAstronautsData } from "../../api";
 
-function Filter({ filterType, selectedValue, onFilterChange }) {
+function Filter({
+  filterType,
+  selectedValue,
+  onFilterChange,
+  searchValue,
+  onSearchChange,
+}) {
   const [filterOptions, setFilterOptions] = useState(["Todas"]);
-  const [searchValue, setSearchValue] = useState("");
   const [astronautData, setAstronautData] = useState([]);
   const [filteredAstronauts, setFilteredAstronauts] = useState([]);
 
@@ -15,7 +20,6 @@ function Filter({ filterType, selectedValue, onFilterChange }) {
       try {
         const data = await getAstronautsData();
         setAstronautData(data);
-        setFilteredAstronauts(data);
         let uniqueFilterOptions;
 
         if (filterType === "nacionalidad") {
@@ -53,7 +57,7 @@ function Filter({ filterType, selectedValue, onFilterChange }) {
 
   const handleSearchInputChange = (event) => {
     const newValue = event.target.value;
-    setSearchValue(newValue);
+    onSearchChange(newValue);
 
     // Filtrar astronautas por nombre
     const filteredAstronauts = astronautData.filter((astronaut) =>
