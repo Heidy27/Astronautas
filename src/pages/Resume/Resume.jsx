@@ -63,10 +63,7 @@ function Resume() {
                   </div>
                 </div>
               </div>
-              {/* Agrega la línea divisoria aquí */}
               <hr className="divider" />
-
-              {/* Agrega el contenido debajo de la línea */}
               <div className="additional-content">
                 <p>Descripción:</p>
                 <p>{astronautData.bio}</p>

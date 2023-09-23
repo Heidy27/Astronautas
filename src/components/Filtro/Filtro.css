@@ -1,5 +1,3 @@
-/* Filtro.css */
-
 .filter {
   align-items: center;
   display: grid;
@@ -69,18 +67,12 @@
   background: transparent;
 }
 .select-container::placeholder {
-  color: #999; /* Puedes ajustar el color según tus preferencias */
+  color: #999;
 }
 .select-container option {
-  color: black; /* Cambia el color del texto a negro */
+  color: black;
 }
 
-/* Cambia el fondo de las opciones del dropdown */
 .select-container option::selection {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0
-  ); /* Hace el fondo completamente transparente */
+  background-color: rgba(0, 0, 0, 0);
 }

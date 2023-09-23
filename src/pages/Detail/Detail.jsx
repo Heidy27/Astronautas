@@ -120,11 +120,7 @@ function Detail() {
                 </span>
               </td>
               <td>
-                <Link
-                  to={`/resume/${astronauta.id}`} // Lleva al usuario a la página Resume con el ID del astronauta
-                >
-                  Conoce más
-                </Link>
+                <Link to={`/resume/${astronauta.id}`}>Conoce más</Link>
               </td>
             </tr>
           ))}

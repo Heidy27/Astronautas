@@ -1,5 +1,3 @@
-/* Resume.css */
-
 .resume-container .resume-container {
   padding: 20px;
 }
@@ -28,11 +26,11 @@
   color: #ab83ec;
   text-align: initial;
 }
-/* Estilo para la sección de estado y redes sociales */
+
 .resume-container .status-and-social {
   display: flex;
   align-items: center;
-  margin-top: 10px; /* Espacio entre la información anterior y esta sección */
+  margin-top: 10px;
 }
 
 .resume-container .status {
