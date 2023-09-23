@@ -4,6 +4,7 @@
   grid-template-columns: 1fr 1fr;
   margin-top: 5%;
   border-radius: 8px;
+  width: 1100px;
 }
 
 .filter-input {

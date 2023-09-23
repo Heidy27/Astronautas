@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { format, parseISO, differenceInYears } from "date-fns";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { getAstronautsData } from "../../api";
 
 function Home() {
   const [astronautas, setAstronautas] = useState([]);
@@ -16,17 +16,9 @@ function Home() {
 
   useEffect(() => {
     const fetchAstronautas = async () => {
-      try {
-        const response = await axios.get(
-          "https://ll.thespacedevs.com/2.2.0/astronaut/?limit=10&offset=10"
-        );
-        if (response.data && Array.isArray(response.data.results)) {
-          setAstronautas(response.data.results);
-          setAstronautasOriginales(response.data.results); // Guarda una copia de los astronautas originales
-        }
-      } catch (error) {
-        console.error("Error al obtener astronautas:", error);
-      }
+      const astronautasData = await getAstronautsData();
+      setAstronautas(astronautasData);
+      setAstronautasOriginales(astronautasData);
     };
 
     fetchAstronautas();
@@ -96,7 +88,7 @@ function Home() {
                 </span>
               </span>
               <Link
-                to={`/detail/${astronauta.id}`} // Utiliza el id del astronauta en la URL
+                to={`/resume/${astronauta.id}`}
                 className="link"
                 target="_blank"
                 rel="noopener noreferrer"

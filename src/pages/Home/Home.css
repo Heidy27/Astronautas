@@ -101,7 +101,10 @@
 }
 @media screen and (max-width: 1200px) {
   .astronaut-card {
-    width: calc(50% - 50px);
+    width: auto;
+  }
+  .filter {
+    width: auto !important;
   }
 }
 @media screen and (max-width: 950px) {

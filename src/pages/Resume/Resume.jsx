@@ -4,6 +4,7 @@ import axios from "axios";
 import Title from "../../components/Title/Title";
 import customIcon from "../../assets/img/Vector 2.png";
 import "./Resume.css";
+import { getAstronautDataById } from "../../api";
 
 function Resume() {
   const { id } = useParams();
@@ -11,15 +12,9 @@ function Resume() {
 
   useEffect(() => {
     const fetchAstronautData = async () => {
-      try {
-        const response = await axios.get(
-          `https://ll.thespacedevs.com/2.2.0/astronaut/${id}`
-        );
-        if (response.data) {
-          setAstronautData(response.data);
-        }
-      } catch (error) {
-        console.error("Error al obtener datos del astronauta:", error);
+      const data = await getAstronautDataById(id);
+      if (data) {
+        setAstronautData(data);
       }
     };
 
