@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Filtro.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+import { getAstronautsData } from "../../api"; // Importa la función
 
 function Filter({ filterType, selectedValue, onFilterChange }) {
   const [filterOptions, setFilterOptions] = useState(["Todas"]);
@@ -10,34 +10,27 @@ function Filter({ filterType, selectedValue, onFilterChange }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://ll.thespacedevs.com/2.2.0/astronaut/"
-        );
-        if (response.data && Array.isArray(response.data.results)) {
-          let uniqueFilterOptions;
+        const astronautData = await getAstronautsData(); // Llama a la función de API
 
-          if (filterType === "nacionalidad") {
-            uniqueFilterOptions = [
-              "Todas", // Agrega "Todas" como una opción
-              ...response.data.results
-                .map((astronaut) => astronaut.nationality)
-                .filter((value, index, self) => self.indexOf(value) === index),
-            ];
-          } else if (filterType === "estado") {
-            uniqueFilterOptions = [
-              "All",
-              ...response.data.results
-                .map((astronaut) => astronaut.status.name)
-                .filter((value, index, self) => self.indexOf(value) === index),
-            ];
-          }
+        let uniqueFilterOptions;
 
-          setFilterOptions(uniqueFilterOptions);
-        } else {
-          console.error(
-            "La respuesta de la API no contiene datos de astronautas."
-          );
+        if (filterType === "nacionalidad") {
+          uniqueFilterOptions = [
+            "Todas",
+            ...astronautData
+              .map((astronaut) => astronaut.nationality)
+              .filter((value, index, self) => self.indexOf(value) === index),
+          ];
+        } else if (filterType === "estado") {
+          uniqueFilterOptions = [
+            "All",
+            ...astronautData
+              .map((astronaut) => astronaut.status.name)
+              .filter((value, index, self) => self.indexOf(value) === index),
+          ];
         }
+
+        setFilterOptions(uniqueFilterOptions);
       } catch (error) {
         console.error(
           "Error al obtener la lista de opciones de filtro:",
