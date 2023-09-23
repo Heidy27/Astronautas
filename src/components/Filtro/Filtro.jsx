@@ -3,7 +3,6 @@ import "./Filtro.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import "../../api";
 
 function Filter({ filterType, selectedValue, onFilterChange }) {
   const [filterOptions, setFilterOptions] = useState(["Todas"]);
@@ -20,16 +19,16 @@ function Filter({ filterType, selectedValue, onFilterChange }) {
           if (filterType === "nacionalidad") {
             uniqueFilterOptions = [
               "Todas", // Agrega "Todas" como una opción
-              ...new Set(
-                response.data.results.map((astronaut) => astronaut.nationality)
-              ),
+              ...response.data.results
+                .map((astronaut) => astronaut.nationality)
+                .filter((value, index, self) => self.indexOf(value) === index),
             ];
           } else if (filterType === "estado") {
             uniqueFilterOptions = [
               "All",
-              ...new Set(
-                response.data.results.map((astronaut) => astronaut.status.name)
-              ),
+              ...response.data.results
+                .map((astronaut) => astronaut.status.name)
+                .filter((value, index, self) => self.indexOf(value) === index),
             ];
           }
 
