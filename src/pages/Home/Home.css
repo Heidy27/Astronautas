@@ -1,0 +1,184 @@
+/* En tu archivo Home.css */
+.astronaut-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10%;
+}
+
+.astronaut-card {
+  width: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.52);
+  box-shadow: 0px 21px 46px -30px rgba(63, 63, 63, 0.52);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.astronaut-image img {
+  width: 108px;
+  height: 106px;
+  border-radius: 7px;
+  margin-right: 10px;
+}
+
+.astronaut-details {
+  flex: 1;
+  color: white;
+}
+
+.astronaut-details h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #fff;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18.4px;
+  margin-bottom: 5%;
+}
+
+.astronaut-details p {
+  margin: 5px 0;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 18.4px;
+}
+.astronaut-details a {
+  display: inline-block;
+  color: #ab83ec;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18.4px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-left: 15%;
+}
+.active-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00b031; /* Color verde para activo */
+  margin-left: 5px; /* Ajusta el margen según sea necesario */
+  margin-right: 8px;
+}
+
+.inactive-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff0000; /* Color rojo para inactivo */
+  margin-left: 5px; /* Ajusta el margen según sea necesario */
+  margin-right: 8px;
+}
+.active-text {
+  color: #00b031; /* Verde para el estado activo */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18.4px;
+}
+
+.inactive-text {
+  color: #ff0000; /* Rojo para el estado inactivo */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18.4px;
+}
+.arrow-icon {
+  margin-left: 5px; /* Espacio entre el texto y el icono */
+}
+@media screen and (max-width: 1200px) {
+  .astronaut-card {
+    width: calc(50% - 50px);
+  }
+}
+@media screen and (max-width: 950px) {
+  .astronaut-card {
+    width: auto;
+  }
+  .filter-input {
+    margin-bottom: 10%;
+    display: none !important;
+  }
+  .astronaut-card-container {
+    justify-content: center;
+  }
+  .title {
+    margin-top: 3%;
+    margin-left: -3%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    padding: 20px;
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: center;
+  }
+  .home-container {
+    padding: 10px;
+  }
+
+  /* Estilos específicos para dispositivos pequeños */
+  .astronaut-card {
+    width: 100%; /* Ancho del 100% en dispositivos pequeños */
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+  }
+
+  .astronaut-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .astronaut-details {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    gap: 5%;
+  }
+
+  .astronaut-details h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .astronaut-details p {
+    font-size: 12px;
+    margin: 5px 0;
+  }
+
+  .astronaut-details a {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .active-circle,
+  .inactive-circle {
+    margin: 5px 3px;
+  }
+}
+.home-container {
+  max-width: 1400px;
+}

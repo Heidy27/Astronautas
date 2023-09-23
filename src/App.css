@@ -1,0 +1,14 @@
+body {
+  background-color: #180026;
+  background-image: url("./assets/img/Group 17.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 82px 108px 108px 103px;
+  flex-direction: column;
+  align-items: flex-end;
+  /* gap: 54.071px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

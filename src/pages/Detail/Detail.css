@@ -1,0 +1,83 @@
+.astronaut-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 5%;
+}
+
+.astronaut-table td {
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18.4px;
+}
+.astronaut-table td:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+.astronaut-table th {
+  background: #ab83ec;
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-weight: bold;
+  border-radius: 5px 5px px 0px;
+  border-bottom: 1px solid var(--FFFFFF, #fff);
+  width: 274px;
+  height: 59px;
+  letter-spacing: 2.4px;
+}
+.astronaut-table td a {
+  text-decoration: none;
+  color: #fff;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18.4px;
+}
+.astronaut-table tr {
+  background: rgba(0, 0, 0, 0.27);
+  border-bottom: 1px solid #ccc;
+}
+.active-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00b031;
+  margin-left: 5px;
+  margin-right: 8px;
+}
+
+.inactive-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff0000;
+  margin-left: 5px;
+  margin-right: 8px;
+}
+.active-text {
+  color: #00b031;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18.4px;
+}
+
+.inactive-text {
+  color: #ff0000;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18.4px;
+}
