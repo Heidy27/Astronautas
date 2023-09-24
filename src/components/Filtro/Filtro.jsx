@@ -5,40 +5,40 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { getAstronautsData } from "../../api";
 
 function Filter({
-  filterType,
-  selectedValue,
-  onFilterChange,
+  selectedNacionalidad,
+  selectedEstado,
+  onNacionalidadChange,
+  onEstadoChange,
   searchValue,
   onSearchChange,
 }) {
-  const [filterOptions, setFilterOptions] = useState(["Todas"]);
+  const [nacionalidades, setNacionalidades] = useState([]);
+  const [estados, setEstados] = useState([]);
   const [astronautData, setAstronautData] = useState([]);
-  const [filteredAstronauts, setFilteredAstronauts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getAstronautsData();
         setAstronautData(data);
-        let uniqueFilterOptions;
 
-        if (filterType === "nacionalidad") {
-          uniqueFilterOptions = [
-            "Todas",
-            ...data
-              .map((astronaut) => astronaut.nationality)
-              .filter((value, index, self) => self.indexOf(value) === index),
-          ];
-        } else if (filterType === "estado") {
-          uniqueFilterOptions = [
-            "All",
-            ...data
-              .map((astronaut) => astronaut.status.name)
-              .filter((value, index, self) => self.indexOf(value) === index),
-          ];
-        }
+        // Obtener opciones de filtro de nacionalidad
+        const uniqueNacionalidades = [
+          "Todas",
+          ...data
+            .map((astronaut) => astronaut.nationality)
+            .filter((value, index, self) => self.indexOf(value) === index),
+        ];
+        setNacionalidades(uniqueNacionalidades);
 
-        setFilterOptions(uniqueFilterOptions);
+        // Obtener opciones de filtro de estado
+        const uniqueEstados = [
+          "Todos",
+          ...data
+            .map((astronaut) => astronaut.status.name)
+            .filter((value, index, self) => self.indexOf(value) === index),
+        ];
+        setEstados(uniqueEstados);
       } catch (error) {
         console.error(
           "Error al obtener la lista de opciones de filtro:",
@@ -48,24 +48,21 @@ function Filter({
     };
 
     fetchData();
-  }, [filterType]);
+  }, []);
 
-  const handleFilterChange = (event) => {
+  const handleNacionalidadChange = (event) => {
     const newValue = event.target.value;
-    onFilterChange(newValue);
+    onNacionalidadChange(newValue);
+  };
+
+  const handleEstadoChange = (event) => {
+    const newValue = event.target.value;
+    onEstadoChange(newValue); // Actualizamos el valor seleccionado
   };
 
   const handleSearchInputChange = (event) => {
     const newValue = event.target.value;
-    onSearchChange(newValue);
-
-    // Filtrar astronautas por nombre
-    const filteredAstronauts = astronautData.filter((astronaut) =>
-      astronaut.name.toLowerCase().includes(newValue.toLowerCase())
-    );
-
-    // Actualizar la lista de astronautas filtrados
-    setFilteredAstronauts(filteredAstronauts);
+    onSearchChange(newValue); // Actualizamos el valor de búsqueda
   };
 
   return (
@@ -81,22 +78,37 @@ function Filter({
         <FontAwesomeIcon icon={faSearch} className="search-icon" size="sm" />
       </div>
       <div className="filter-option">
-        <label className="filter-label">
-          {filterType === "nacionalidad" ? "Nacionalidad" : "Estado"}:
-        </label>
+        <label className="filter-label">Nacionalidad:</label>
         <div className="select-container">
           <select
             className="filter-select"
-            value={selectedValue}
-            onChange={handleFilterChange}
+            value={selectedNacionalidad}
+            onChange={handleNacionalidadChange}
           >
-            {filterOptions.map((option) => (
+            {nacionalidades.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
             ))}
           </select>
           <div className="select-arrow"></div>
+        </div>
+        <div className="filter-option">
+          <label className="filter-label">Estado:</label>
+          <div className="select-container">
+            <select
+              className="filter-select"
+              value={selectedEstado}
+              onChange={handleEstadoChange}
+            >
+              {estados.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            <div className="select-arrow"></div>
+          </div>
         </div>
       </div>
     </div>

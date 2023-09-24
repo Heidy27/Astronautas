@@ -4,21 +4,23 @@
   justify-content: space-between;
   margin-top: 10%;
 }
-
 .astronaut-card {
   width: auto;
   margin-bottom: 20px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.52);
   box-shadow: 0px 21px 46px -30px rgba(63, 63, 63, 0.52);
+  border-radius: 10px;
+  border: 1px solid #e3e3e366;
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 10px;
 }
 
 .astronaut-image img {
-  width: 108px;
-  height: 106px;
+  width: 118px;
+  height: 136px;
   border-radius: 7px;
   margin-right: 10px;
 }
@@ -99,6 +101,38 @@
 .arrow-icon {
   margin-left: 5px;
 }
+.home-container {
+  max-width: 1400px;
+}
+
+.ver-mas-button {
+  margin-top: 10px;
+  background-color: #ab83ec;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 25%;
+  margin-top: 1%;
+}
+.astronaut-description {
+  margin-top: 10px;
+  width: 300px;
+  flex-direction: column;
+}
+.astronaut-image {
+  display: flex;
+}
+.social-media {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+.home-container hr {
+  margin-top: 5%;
+}
+
 @media screen and (max-width: 1200px) {
   .astronaut-card {
     width: auto;
@@ -121,6 +155,9 @@
   .title {
     margin-top: 3%;
     margin-left: -3%;
+  }
+  .social-media {
+    padding: 5%;
   }
 }
 
@@ -168,17 +205,8 @@
     font-size: 12px;
     margin: 5px 0;
   }
-
-  .astronaut-details a {
-    margin-top: 10px;
-    margin-left: 0;
-  }
-
   .active-circle,
   .inactive-circle {
     margin: 5px 3px;
   }
-}
-.home-container {
-  max-width: 1400px;
 }

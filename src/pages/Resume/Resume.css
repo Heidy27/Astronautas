@@ -125,7 +125,6 @@ hr {
 .resume-container .status {
   text-align: initial;
 }
-/* Estilos para el título de Misiones Espaciales */
 .accordion-title {
   color: #fff;
   font-family: Inter;
@@ -179,6 +178,12 @@ hr {
 }
 .resume-container .astronaut-details a {
   margin: auto;
+  justify-content: end;
+  display: flex;
+}
+
+.select-container {
+  margin: 0;
 }
 @media screen and (max-width: 950px) {
   .columns-container {
@@ -207,11 +212,19 @@ hr {
     align-items: center;
     justify-content: center;
   }
+  .astronaut-details span {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
 }
 
 @media screen and (max-width: 500px) {
   body {
     padding: auto;
+  }
+  .astronaut-card {
+    background: rgb(0 0 0 / 89%);
   }
   .accordion-container button {
     width: 300px;
@@ -224,6 +237,8 @@ hr {
   .astronaut-image {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .astronaut-image img {
     margin-bottom: 5%;
@@ -237,5 +252,11 @@ hr {
   .filter {
     display: flex;
     justify-content: center;
+  }
+  .filter-option {
+    flex-direction: column;
+  }
+  .select-container {
+    margin-bottom: 10%;
   }
 }

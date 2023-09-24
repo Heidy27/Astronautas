@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Title from "../../components/Title/Title";
-import customIcon from "../../assets/img/Vector 2.png"; // Tu imagen personalizada
-import wikipediaIcon from "../../assets/img/fb.svg"; // Imagen de Wikipedia
-import instagramIcon from "../../assets/img/ig.svg"; // Imagen de Instagram
-import twitterIcon from "../../assets/img/tw.svg"; // Imagen de Twitter
+import customIcon from "../../assets/img/Vector 2.png";
+import wikipediaIcon from "../../assets/img/fb.svg";
+import instagramIcon from "../../assets/img/ig.svg";
+import twitterIcon from "../../assets/img/tw.svg";
 import "./Resume.css";
 import { getAstronautDataById } from "../../api";
 
@@ -89,6 +89,9 @@ function Resume() {
               <div className="additional-content">
                 <p>Descripción:</p>
                 <p>{astronautData.bio}</p>
+                <Link to="/" className="home-link">
+                  Volver a la página de inicio
+                </Link>
               </div>
             </div>
           )}
@@ -110,13 +113,6 @@ function Resume() {
                 <div className="accordion-details">
                   <p>Nombre de la agencia: {astronautData.agency.name}</p>
                   <p>Tipo: {astronautData.agency.type}</p>
-                  <p>
-                    Países involucrados: {astronautData.agency.country_code}
-                  </p>
-                  <p>
-                    Descripción de la agencia:{" "}
-                    {astronautData.agency.description}
-                  </p>
                 </div>
               )}
 
